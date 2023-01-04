@@ -19,8 +19,13 @@ Use with VSCode and the excellent REST Client extension to access Microsoft comm
    * The landing page is registered as part of creating the SaaS offer
    * You will need to URL decode the token before use
 1. Install the REST Client extension in VS Code
-1. Set the variables in resolve.http to decode a marketplace token
+1. Set variables to authorize and decode a marketplace token, get subscriptions etc
     * `client_id`
     * `tenant_id`
     * `client_secret`
     * `marketplace_token`
+> Note these are sensitive values and must be treated with care    
+
+7. Use
+   1. `subscription-apis.http` for subscription APIs    
+   1. `operations-apis.http` for operations APIs
