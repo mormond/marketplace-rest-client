@@ -4,6 +4,8 @@
 @marketplace_token=
 @subscription={{resolve.response.body.$.subscription.id}}
 
+@baseUrl=marketplaceapi.microsoft.com
+
 #########################################################################################
 
 # @name getBearerToken
@@ -18,7 +20,7 @@ client_id={{client_id}}
 #########################################################################################
 
 # @name resolve
-POST https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=2018-08-31 HTTP/1.1
+POST https://{{baseUrl}}/api/saas/subscriptions/resolve?api-version=2018-08-31 HTTP/1.1
 Authorization: Bearer {{getBearerToken.response.body.$.access_token}}
 Content-Type: application/json
 x-ms-marketplace-token: {{marketplace_token}}
@@ -29,25 +31,25 @@ x-ms-marketplace-token: {{marketplace_token}}
 # 
 # Update planId / quantity before use
 #
-POST https://marketplaceapi.microsoft.com/api/saas/subscriptions/{{subscription}}/activate?api-version=2018-08-31 HTTP/1.1
+POST https://{{baseUrl}}/api/saas/subscriptions/{{subscription}}/activate?api-version=2018-08-31 HTTP/1.1
 Authorization: Bearer {{getBearerToken.response.body.$.access_token}}
 Content-Type: application/json
 
 {
-    "planId": "1"
+    "planId": "GOLD"
 }
 
 #########################################################################################
 
 # @name getSubscriptions
-GET https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-08-31 HTTP/1.1
+GET https://{{baseUrl}}/api/saas/subscriptions?api-version=2018-08-31 HTTP/1.1
 Authorization: Bearer {{getBearerToken.response.body.$.access_token}}
 Content-Type: application/json
 
 #########################################################################################
 
 # @name getSubscription
-GET https://marketplaceapi.microsoft.com/api/saas/subscriptions/{{subscription}}?api-version=2018-08-31 HTTP/1.1
+GET https://{{baseUrl}}/api/saas/subscriptions/{{subscription}}?api-version=2018-08-31 HTTP/1.1
 Authorization: Bearer {{getBearerToken.response.body.$.access_token}}
 Content-Type: application/json
 
@@ -57,7 +59,7 @@ Content-Type: application/json
 # 
 # Update planId before use
 #
-PATCH https://marketplaceapi.microsoft.com/api/saas/subscriptions/{{subscription}}?api-version=2018-08-31 HTTP/1.1
+PATCH https://{{baseUrl}}/api/saas/subscriptions/{{subscription}}?api-version=2018-08-31 HTTP/1.1
 Authorization: Bearer {{getBearerToken.response.body.$.access_token}}
 Content-Type: application/json
 
@@ -78,7 +80,7 @@ Content-Type: application/json
 # 
 # Update quatity before use
 #
-PATCH https://marketplaceapi.microsoft.com/api/saas/subscriptions/{{subscription}}?api-version=2018-08-31 HTTP/1.1
+PATCH https://{{baseUrl}}/api/saas/subscriptions/{{subscription}}?api-version=2018-08-31 HTTP/1.1
 Authorization: Bearer {{getBearerToken.response.body.$.access_token}}
 Content-Type: application/json
 
@@ -96,7 +98,7 @@ Content-Type: application/json
 #########################################################################################
 
 # @name deleteSubscription
-DELETE https://marketplaceapi.microsoft.com/api/saas/subscriptions/{{subscription}}?api-version=2018-08-31 HTTP/1.1
+DELETE https://{{baseUrl}}/api/saas/subscriptions/{{subscription}}?api-version=2018-08-31 HTTP/1.1
 Authorization: Bearer {{getBearerToken.response.body.$.access_token}}
 Content-Type: application/json
 
@@ -110,7 +112,7 @@ Content-Type: application/json
 #########################################################################################
 
 # @name listAvailablePlans
-GET https://marketplaceapi.microsoft.com/api/saas/subscriptions/{{subscription}}/listAvailablePlans?api-version=2018-08-31 HTTP/1.1
+GET https://{{baseUrl}}/api/saas/subscriptions/{{subscription}}/listAvailablePlans?api-version=2018-08-31 HTTP/1.1
 Authorization: Bearer {{getBearerToken.response.body.$.access_token}}
 Content-Type: application/json
 
