@@ -25,13 +25,28 @@ Content-Type: application/json
 
 #########################################################################################
 
+@operation_id=
+
 # @name getOperationStatus
 #
 # Update operation_id before use
 #
-@operation_id=
 GET https://{{baseUrl}}/api/saas/subscriptions/{{subscription}}/operations/{{operation_id}}?api-version=2018-08-31 HTTP/1.1
 Authorization: Bearer {{getBearerToken.response.body.$.access_token}}
 Content-Type: application/json
+
+#########################################################################################
+
+# @name patchOperationStatus
+#
+# Update operation_id, status before use
+#
+PATCH https://{{baseUrl}}/api/saas/subscriptions/{{subscription}}/operations/{{operation_id}}?api-version=2018-08-31 HTTP/1.1
+Authorization: Bearer {{getBearerToken.response.body.$.access_token}}
+Content-Type: application/json
+
+{
+    "status": "Success/Failure"
+}
 
 #########################################################################################
