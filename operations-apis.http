@@ -3,6 +3,8 @@
 @tenant_id=
 @subscription=
 
+@baseUrl=marketplaceapi.microsoft.com
+
 #########################################################################################
 
 # @name getBearerToken
@@ -17,7 +19,7 @@ client_id={{client_id}}
 #########################################################################################
 
 # @name getOutstandingOperations
-GET https://marketplaceapi.microsoft.com/api/saas/subscriptions/{{subscription}}/operations?api-version=2018-08-31 HTTP/1.1
+GET https://{{baseUrl}}/api/saas/subscriptions/{{subscription}}/operations?api-version=2018-08-31 HTTP/1.1
 Authorization: Bearer {{getBearerToken.response.body.$.access_token}}
 Content-Type: application/json
 
@@ -29,7 +31,7 @@ Content-Type: application/json
 #
 # Update operation_id before use
 #
-GET https://marketplaceapi.microsoft.com/api/saas/subscriptions/{{subscription}}/operations/{{operation_id}}?api-version=2018-08-31 HTTP/1.1
+GET https://{{baseUrl}}/api/saas/subscriptions/{{subscription}}/operations/{{operation_id}}?api-version=2018-08-31 HTTP/1.1
 Authorization: Bearer {{getBearerToken.response.body.$.access_token}}
 Content-Type: application/json
 
@@ -39,7 +41,7 @@ Content-Type: application/json
 #
 # Update operation_id, status before use
 #
-PATCH https://marketplaceapi.microsoft.com/api/saas/subscriptions/{{subscription}}/operations/{{operation_id}}?api-version=2018-08-31 HTTP/1.1
+PATCH https://{{baseUrl}}/api/saas/subscriptions/{{subscription}}/operations/{{operation_id}}?api-version=2018-08-31 HTTP/1.1
 Authorization: Bearer {{getBearerToken.response.body.$.access_token}}
 Content-Type: application/json
 
