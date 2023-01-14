@@ -1,11 +1,11 @@
-# marketplace-rest-client
+# Microsoft Commercial Marketplace REST API Client
 
-Use with VSCode and the excellent REST Client extension to access Microsoft commercial marketplace APIs.
+Use with [VS Code](https://code.visualstudio.com/) and the excellent [REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) to access Microsoft commercial marketplace SaaS Fulfillment APIs.
 
-1. You will need
+1. To use with the SaaS Fulfillment APIs you will need
     * An Azure subscription
     * A Partner Center account
-    * Signed up for the commercial marketplace in Partner Center
+    * Enrolled in commercial marketplace in Partner Center
     * Relevant permissions to publish (eg Developer)
 1. Create an app registration in AAD (Azure Active Directory)
 1. Create a SaaS offer in Partner Center
